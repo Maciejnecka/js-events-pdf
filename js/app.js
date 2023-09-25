@@ -228,3 +228,108 @@
 //   item.addEventListener('click', renderInfo);
 //   item.addEventListener('mouseenter', renderInfo);
 // });
+
+// const linksList = document.querySelectorAll('a');
+// // pobieram wszystkie <a/> na stronie
+
+// const getHref = function (e) {
+//   e.preventDefault();
+//   // zatrzymuje domyslna akcje
+
+//   const href = this.getAttribute('href');
+//   // pobieram adres, ktory jest zapisany w atrybucie href w kliknietym <a/>
+//   console.log(href);
+// };
+
+// linksList.forEach(function (item) {
+//   item.addEventListener('click', getHref);
+// });
+
+// const linksList = document.querySelectorAll('a');
+// const confirmRedirect = function (e) {
+//   const newUrl = this.getAttribute('href');
+//   const userDecision = confirm('Are you sure? -> ' + newUrl);
+//   // pobieram potwierdzenie
+
+//   if (!userDecision) {
+//     // jesli uzytkownik nie potwierdzil
+//     e.preventDefault();
+//     // nie przekierowuje go na nowy adres url
+//   }
+// };
+// linksList.forEach(function (item) {
+//   item.addEventListener('click', confirmRedirect);
+// });
+
+// const formEl = document.querySelector('form');
+// const handleSubmit = function (e) {
+//   e.preventDefault();
+//   // jesli nie uzyje zatrzymania domyslnej akcji to dane formularza zostana wyslane do adresu zdefiniowanego w atrybucie [action] jesli formularz nie posiada tego atrybutu to strona zostanie przeładowana
+//   console.log('submit!');
+// };
+// formEl && formEl.addEventListener('submit', handleSubmit);
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// // wyszukuje wszystkkie lementy razem
+// const showTagName = function (e) {
+//   console.log(this.tagName);
+//   if (this.tagName === 'ARTICLE') {
+//     e.stopPropagation();
+//     // zatrzymuje propagacje na <article/> dla elementow wyzej w drzewie DOM tj. przodkow dla <article/> nie sa uruchamiane callbacki
+//   }
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showTagName);
+// });
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// const showTagName = function (e) {
+//   console.log(this.tagName);
+//   if (this.tagName === 'ARTICLE') {
+//     e.stopImmediatePropagation();
+//   }
+// };
+// const showText = function () {
+//   console.log('click on article!');
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showTagName);
+//   if (item.tagName === 'ARTICLE') {
+//     item.addEventListener('click', showText);
+//   }
+// });
+// const itemsList = document.querySelectorAll('section, article, h1');
+// const showInfo = function (e) {
+//   let text = e.target.tagName + ': ';
+//   // pobieram nazwe tagu elementu, na ktorym zostalo wywoalen zdarzenie, w tym przypadku jest to element, w ktory kliknieto
+//   text += this.tagName;
+//   console.log(text);
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showInfo);
+// });
+// const itemsList = document.querySelectorAll('section, article, h1');
+// const showInfo = function (e) {
+//   let text = e.currentTarget.tagName + ': ';
+//   // pobieram nazwe tagu elementu, na ktorym zostal uruchomiony callback
+//   text += e.currentTarget === this ? 'Y' : 'N';
+//   // sprawdzam czy zmienne wskazuja na ten sam element w drzewie DOM
+//   console.log(text);
+// };
+
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showInfo);
+// });
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// const showInfo = function (e) {
+//   if (e.target === e.currentTarget) {
+//     // wykonaj instrukcje tylko wtedy, gdy callback jest uruchomiony bezposrednio, czyli nie przez propagacje
+//     const text = e.target.tagName;
+//     console.log(text + ' was clicked');
+//   }
+// };
+
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showInfo);
+// });
