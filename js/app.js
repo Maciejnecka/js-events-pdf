@@ -333,3 +333,63 @@
 // itemsList.forEach(function (item) {
 //   item.addEventListener('click', showInfo);
 // });
+
+// const btnElement = document.querySelector('button');
+// const handleClick = function (e) {
+//   console.log('button was clicked');
+//   console.log(e.isTrusted);
+//   // zwraca [true] gdy uruchomie przez uzytkownika
+//   // zwraca [false], gdy uruchomie z poziomu kodu JS
+// };
+// btnElement.addEventListener('click', handleClick);
+// btnElement.click();
+
+// const btnElement = document.querySelector('button');
+// const handleClick = function (e) {
+//   console.log('button was clicked');
+//   console.log(e.isTrusted);
+// };
+
+// btnElement.addEventListener('click', handleClick);
+
+// const eventClick = new MouseEvent('click', {
+//   bubbles: true,
+//   // czy wykorzystujemy faze bubbling przy propagacji
+//   cancelable: true,
+//   // czy mozna zatrzymac event za pomoca .preventDefault()
+// });
+// // tworze event typu [click]
+
+// btnElement.dispatchEvent(eventClick);
+// // wywoluje event na elemencie [btnElement]
+// const btnElement = document.querySelector('button');
+// const pElement = document.querySelector('p');
+// const handleRender = function (e) {
+//   this.innerText = e.detail;
+//   // wstaw tekst przekazany przy wywolaniu
+// };
+// const handleClick = function () {
+//   const renderEvent = new CustomEvent('render', { detail: 'new content!' });
+//   // tworze event o nazwie [render]
+//   // oraz przekazuje dodatkowe dane w [detail]
+//   pElement.dispatchEvent(renderEvent);
+//   // wywoluje utworzony event na elemencie [pElement]
+// };
+// btnElement.addEventListener('click', handleClick);
+// pElement.addEventListener('render', handleRender);
+// // podpinam nasluchiwanie eventu [render]
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// const handleOutput = function (e) {
+//   console.log(this.tagName, e.type);
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('output', handleOutput);
+//   if (item.tagName === 'H!') {
+//     const outputEvent = new CustomEvent('output', {
+//       detail: item.tagName,
+//       bubbles: false,
+//     });
+//     item.dispatchEvent(outputEvent);
+//   }
+// });
