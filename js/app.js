@@ -141,3 +141,90 @@
 //   btnEl.addEventListener('click', changeText);
 //   // dopisz nasluchiwanie na event [click] - [this] będzie wskazywał na [btnEl]
 // });
+// const btnEl = document.querySelector('button');
+// const sectionEl = document.querySelector('section');
+// if (btnEl && sectionEl) {
+//   btnEl.addEventListener('click', function () {
+//     console.log('button was clicked');
+//   });
+// }
+
+// sectionEl.addEventListener('click', function () {
+//   console.log('section was clicked too!');
+//   // zauwaz, ze klikajac w <button/> rownoczesnie klikasz tez w <div/> ktory zawiera w sobie ten przycisk
+// });
+// const itemsList = document.querySelectorAll('section, article, h1');
+// // wyszukuje wszystkie elementy razem
+// const showTagName = function () {
+//   console.log(this.tagName);
+//   // pobieram nazwe tagu, na ktorym zostalo wywolane zdarzenie
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showTagName, true);
+//   // ostatni parametr jest ustawiany domyslnie na false dlatego nie musimy go pisac dla [click] oznacza to, ze ma zostac wykorzystana faza [bubbling] propagacji
+// });
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// // wyszukuje wszystkie elementy razem
+// const showTagName = function (e) {
+//   console.log(this.tagName);
+//   if (this.tagName === 'ARTICLE') {
+//     this.removeEventListener('click', showTagName, true);
+//     // usuwam nasluchiwanie na <article/> poniewaz korzystam z [capturing], to 3 parametr ustawiony jest na [true]
+//   }
+// };
+// itemsList.forEach(function (item) {
+//   item.addEventListener('click', showTagName, true);
+// });
+
+// const itemsList = document.querySelectorAll('section, article, h1');
+// // wyszukuje wszystkie elementy razem
+
+// const showTagName = function () {
+//   console.log(this.tagName);
+//   // wyswietlam informacje o tagu
+// };
+
+// itemsList.forEach(function (item) {
+//   item.addEventListener('mouseenter', showTagName);
+//   // mimo, ze nie uzywam fazy capturing, to kolejnosc wyswietlanych tagow w konsoli jest zgodna z faza capturing tj. section, article, h1
+// });
+// const btnsList = document.querySelectorAll('button');
+// const shotInformation = function (e) {
+//   // nazwa parametru jest dowolna, najczesciej jest to [e] lub [event]
+//   console.log(e.type, this.innerText);
+//   // moge dzieki wlasciwosci [type] pobrac informacje o typie eventu
+// };
+// btnsList.forEach(function (item) {
+//   item.addEventListener('mouseenter', shotInformation);
+//   item.addEventListener('click', shotInformation);
+//   // nasluchuje na tym samym elemencie klikniecei i najechanie kursorem myszy
+// });
+
+// const btnsList = document.querySelectorAll('button');
+// const showObject = function (e) {
+//   console.log(e);
+//   // wyswietlam obiekt [e] w konsoli, aby sprawdzic, jakei wlasciwosci posiada
+// };
+// btnsList.forEach(function (item) {
+//   item.addEventListener('click', showObject);
+//   // nasluchuje event [click] na tym elemencie
+// });
+
+// const btnsList = document.querySelectorAll('button');
+// const pElement = document.querySelector('p');
+// const renderInfo = function (e) {
+//   if (pElement) {
+//     let text = parseInt(e.timeStamp / 1000);
+//     // ilosc sekund od uruchomienia strony
+//     text += ': ' + this.tagName;
+//     // nazwa nasluchiwanego tagu
+//     text += ' -> ' + e.type;
+//     // typ uruchomionego zdarzenia
+//     pElement.innerText = text;
+//   }
+// };
+// btnsList.forEach(function (item) {
+//   item.addEventListener('click', renderInfo);
+//   item.addEventListener('mouseenter', renderInfo);
+// });
